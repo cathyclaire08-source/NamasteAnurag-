@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Namaste Anurag</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1d4ed8,#60a5fa);
+}
+
+/* STAGE */
+
+.wrapper{
+    position:relative;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* HUGE ENVELOPE */
+
+.envelope-icon{
+    font-size:clamp(260px, 35vw, 420px);
+    cursor:pointer;
+    user-select:none;
+    transition:0.7s ease;
+    z-index:5;
+}
+
+/* LETTER */
+
+.letter{
+    position:absolute;
+
+    width:min(460px, 90vw);
+    height:380px;
+
+    background:white;
+    border-radius:18px;
+    padding:30px;
+
+    opacity:0;
+    transform:scale(0.5);
+
+    transition:0.9s ease;
+
+    box-shadow:0 25px 80px rgba(0,0,0,0.4);
+
+    overflow-y:auto;
+
+    z-index:2;
+}
+
+.letter::-webkit-scrollbar{
+    display:none;
+}
+
+/* TEXT */
+
+.letter h1{
+    text-align:center;
+    color:#1d4ed8;
+    margin-bottom:15px;
+    font-size:36px;
+}
+.letter h2{
+    text-align:center;
+    color:black;
+    margin-bottom:15px;
+    font-size:36px;
+
+
+}
+
+.letter p{
+    text-align:center;
+    color:#334155;
+    line-height:1.8;
+    font-size:18px;
+}
+
+/* HEARTS */
+
+.hearts{
+    position:absolute;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    left:50%;
+    bottom:45%;
+    font-size:30px;
+    opacity:0;
+    animation:float 3s ease forwards;
+}
+
+@keyframes float{
+    0%{transform:translateY(0) scale(0.5); opacity:0;}
+    20%{opacity:1;}
+    100%{transform:translateY(-420px) scale(1.6); opacity:0;}
+}
+
+/* OPEN STATE */
+
+.wrapper.open .envelope-icon{
+    opacity:0;
+    transform:scale(0.15);
+}
+
+.wrapper.open .letter{
+    opacity:1;
+    transform:scale(1);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="wrapper" id="wrapper">
+
+    <div class="hearts" id="hearts"></div>
+
+    <div class="envelope-icon">💌</div>
+
+    <div class="letter">
+
+        <h1>For You 💙</h1>
+        <h2> My 𑣲𝑨nurag </h2>
+
+      <p>  ‎Hi Bruhh☺️ Ahmm..... I have something to say to you-- Thank you! Thank you for spending your time with me. Thank you for making me laugh yeah 😂... Thank you too for spending your long hours watching my shared reels for you. It means a lot to me🫶...  </p>
+‎
+‎<p> If ever you're wondering WHY? ahm, it just crosses into my mind that there are some thoughts that come up too to my mind about the people closes to me thinking about themselves if ever there are people love spending time with them too, appreciating them you too, or etc.... And if you're thinking like this too,  i want to say, Yes! There are! And if ever they are many people having those thoughts, then I'm one of them  bruhhhh,  I really appreciate you so much, Thank You bruhh, I love you bruhh . </p>
+‎
+‎<p> I'm going to say these to you because I realized that one day will come, (maybe, but yes i know, that day will come😅) we will never talk anymore as how we used to be😊, and i don't want you bruhh to spend time thinking if ever I'm thankful to you that i met you. If ever I'm happy to you that i met you. If ever I love spending time with you too. If ever I get excited to receive new message, reacting and replying to your messages. If ever I'm also waiting sometime to your new shared reels (HAHAHAHHAHAHAHA) and replies. </p>
+‎
+‎<p> And i say this to you because if ever we suddenly stop communicating, and I didn't say a proper GOODBYE to you, at least i already told you whats on my mind about YOU. 😊🫶😇 </p>
+‎
+‎<p> I'm happy to meet you bruhh.. </p>
+‎
+‎<p> If i have something I will never forget about you, its sharing REELS😭😂 and cuteness the first time I became friends with you at Facebook HAHAHAHHAHAH (I just remembered I add you 'cause you want me 'cause i already added kuya Rahi😂. I don't know if you remember this or I'm just the one who thought this wrong😂, so i'll apologize😂 </p> 
+‎
+‎ <p> I actually want to give this to you the THANK YOU Message at your birthday as a gift, but I can't wait ehhh.... I can't wait to give it to you because I realized i don't have to wait a for the best day for you when I NEED you to know my thoughts about you right now .  </p> 
+‎
+‎<p> I hope bruhh we're still good friends when the time we don't talk anymore. </p> 
+‎
+‎ <p> Once again THANK YOU FOR EVERYTHING and I Love the way how you treat me. I love it so much, I love you! My Anurag! 😘 </p> 
+
+    </div>
+
+
+</div>
+
+<script>
+
+const wrapper = document.getElementById("wrapper");
+const icon = document.querySelector(".envelope-icon");
+const hearts = document.getElementById("hearts");
+
+icon.addEventListener("click", () => {
+
+    wrapper.classList.add("open");
+
+    for(let i=0;i<22;i++){
+
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.innerHTML = "💙";
+
+        h.style.left = Math.random()*100 + "%";
+        h.style.fontSize = (22 + Math.random()*40) + "px";
+        h.style.animationDuration = (2 + Math.random()*2) + "s";
+
+        hearts.appendChild(h);
+
+        setTimeout(()=>h.remove(),4000);
+    }
+
+});
+
+</script>
+
+</body>
+</html>
